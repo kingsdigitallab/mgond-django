@@ -107,6 +107,7 @@ INSTALLED_APPS += [    # your project apps here
     'modelcluster',
     'wagtail.wagtailsearch',
     'haystack',
+    'diaspora',
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
