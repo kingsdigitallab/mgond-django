@@ -14,7 +14,7 @@ import os
 
 
 
-from kdl_ldap.settings import * # noqa
+# from kdl_ldap.settings import * # noqa
 
 
 
@@ -88,7 +88,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [    # your project apps here
     
     'django.contrib.gis',
-    'kdl_ldap',
+    #'kdl_ldap',
     'rest_framework',
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
