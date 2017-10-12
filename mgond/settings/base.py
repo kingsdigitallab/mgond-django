@@ -14,7 +14,7 @@ import os
 
 
 
-# from kdl_ldap.settings import * # noqa
+from kdl_ldap.settings import * # noqa
 
 
 
@@ -314,7 +314,7 @@ db_engine = 'django.db.backends.postgresql_psycopg2'
 if 'django.contrib.gis' in INSTALLED_APPS:
     db_engine = 'django.contrib.gis.db.backends.postgis'
 
-
+LDAP_BASE_OU = 'dc=dighum,dc=kcl,dc=ac,dc=uk'
 
 AUTH_LDAP_REQUIRE_GROUP = 'cn=mgond,' + LDAP_BASE_OU
 WAGTAIL_SITE_NAME = PROJECT_TITLE
