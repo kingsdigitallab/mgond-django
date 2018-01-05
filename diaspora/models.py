@@ -27,7 +27,7 @@ class Object(models.Model):
 
 
 class Event(models.Model):
-    object = models.ManyToManyField('Object')
+    object = models.ForeignKey('Object')
     date_start = models.DateField()
     date_end = models.DateField()
     date_approx = models.BooleanField()
@@ -39,6 +39,10 @@ class Event(models.Model):
     end_point = models.ForeignKey('Location', blank=True,\
                                    null=True,
                                    related_name='end_location')
+
+    def __str__(self):
+        return '%s' % self.event_type.type
+
 
 
 class EventType(models.Model):
@@ -121,6 +125,9 @@ class Relations(models.Model):
 class RelationshipType(models.Model):
     description = models.CharField(max_length=50)
 
+    def __str__(self):
+        return '%s' % self.description
+
 class Type(models.Model):
     description = models.CharField(max_length=50)
     sub_type = models.ForeignKey('SubType', blank=True, null=True)
@@ -153,5 +160,12 @@ class Condition(models.Model):
 class ConditionDescription(models.Model):
     description = models.CharField(max_length=50)
 
+    def __str__(self):
+        return '%s' % self.description
+
+
 class ConditionSubDescription(models.Model):
     subdescription = models.CharField(max_length=50) 
+
+    def __str__(self):
+        return '%s' % self.subdescription

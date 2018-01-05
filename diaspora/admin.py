@@ -6,7 +6,8 @@ from diaspora.models import FindSpot, Object,\
     SubType, Type, SubSubType, Relations,\
     RelationshipType, Images, ConditionDescription,\
     ConditionSubDescription, ImageRights, License,\
-    Person, Condition, Organisation
+    Person, Condition, Organisation, Event, EventType,\
+    Location, Country
     
 
 class ObjectInline(admin.StackedInline):
@@ -17,9 +18,13 @@ class ImageInline(admin.StackedInline):
     model = Images
     fk_name = 'object'
 
+class EventInline(admin.StackedInline):
+    model = Event
+    fk_name = 'object'
 
 class ObjectAdmin(admin.OSMGeoAdmin):
-    inlines = [ObjectInline, ImageInline]
+    inlines = [ObjectInline, ImageInline,
+               EventInline]
 
 
 
@@ -42,3 +47,7 @@ admin.site.register(ImageRights)
 admin.site.register(License)
 admin.site.register(Person)
 admin.site.register(Organisation)
+admin.site.register(Event)
+admin.site.register(EventType)
+admin.site.register(Location, FindSpotAdmin)
+admin.site.register(Country)
